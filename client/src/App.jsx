@@ -11,7 +11,7 @@ const App = () => {
   let element = useRoutes([
     {
       path: '/',
-      element: <CreateCar title='BOLT BUCKET | Customize' />
+      element: <CreateCar title='PCForge | Build' />
     },
     {
       path:'/customcars',

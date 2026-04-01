@@ -1,21 +1,31 @@
 import React from 'react'
-import '../App.css'
+import { Link, useLocation } from 'react-router-dom'
 import '../css/Navigation.css'
 
 const Navigation = () => {
-    return (
-        <nav>
-            <ul>
-                <li><h1>Bolt Bucket 🏎️</h1></li>
-            </ul>
+  const { pathname } = useLocation()
 
-            <ul>
-                <li><a href='/' role='button'>Customize</a></li>
-                <li><a href='/customcars' role='button'>View Cars</a></li>
-            </ul>
-            
-        </nav>
-    )
+  return (
+    <nav className="navbar">
+      <Link to="/" className="navbar-brand">
+        <span className="brand-icon">⚡</span>
+        <span className="brand-text">PC<span className="brand-accent">Forge</span></span>
+      </Link>
+
+      <ul className="navbar-links">
+        <li>
+          <Link to="/" className={`nav-link ${pathname === '/' ? 'active' : ''}`}>
+            Build
+          </Link>
+        </li>
+        <li>
+          <Link to="/customcars" className={`nav-link ${pathname === '/customcars' ? 'active' : ''}`}>
+            My Builds
+          </Link>
+        </li>
+      </ul>
+    </nav>
+  )
 }
 
 export default Navigation
